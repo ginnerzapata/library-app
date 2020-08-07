@@ -2,7 +2,7 @@
 
 A library app following I made as a project for The Odin
 
-##Requirements
+## Requirements
 
 - A _render()_ function that loops through the array and displays each book on the page
 - A form that allows user to add new books
