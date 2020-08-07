@@ -1,4 +1,5 @@
-let library = JSON.parse(localStorage.getItem("library"));
+let library = [];
+JSON.parse(localStorage.getItem("library"));
 const $name = document.querySelector("#name");
 const $author = document.querySelector("#author");
 const $status = document.querySelector("#status");
