@@ -1,9 +1,4 @@
-let library = [
-  { name: "The Lord of the Rings", author: "Tolkien", status: "read" },
-  { name: "Alice in Wonderland", author: "Lewis Caroll", status: "not read" },
-  { name: "Naruto", author: "Masashi Kishimoto", status: "read" },
-];
-
+let library;
 const $name = document.querySelector("#name");
 const $author = document.querySelector("#author");
 const $status = document.querySelector("#status");
@@ -74,6 +69,16 @@ function updateLocalStorage() {
 function render() {
   if (localStorage.getItem("library")) {
     library = JSON.parse(localStorage.getItem("library"));
+  } else {
+    library = [
+      { name: "The Lord of the Rings", author: "Tolkien", status: "read" },
+      {
+        name: "Alice in Wonderland",
+        author: "Lewis Caroll",
+        status: "not read",
+      },
+      { name: "Naruto", author: "Masashi Kishimoto", status: "read" },
+    ];
   }
   $tableBody.innerHTML = "";
   library.forEach((book) => {
