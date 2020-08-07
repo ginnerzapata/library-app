@@ -9,11 +9,13 @@ A library app following I made as a project for The Odin
 - A delete button.
 - A button to handle the read status of the book
 
-##Object Constructors
+## Object Constructors
+
 The focus of this project was to create this app using Object Constructors and
 being able to reduce the code by doing so.
 
-##LocalStorage
+## LocalStorage
+
 I was asked to do it locally but it was a fine opportunity to learn and apply
 LocalStorage. I learned about the basics of it using the Mozilla documentation
 and also learned about JSON _stringify_ and _parse_ methods which made handling the
