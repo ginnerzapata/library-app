@@ -65,8 +65,7 @@ function updateLocalStorage() {
   localStorage.setItem("library", JSON.stringify(library));
   library = JSON.parse(localStorage.getItem("library"));
 }
-
-function render() {
+function checkLocalStorage() {
   if (localStorage.getItem("library")) {
     library = JSON.parse(localStorage.getItem("library"));
   } else {
@@ -80,6 +79,10 @@ function render() {
       { name: "Naruto", author: "Masashi Kishimoto", status: "read" },
     ];
   }
+}
+
+function render() {
+  checkLocalStorage();
   $tableBody.innerHTML = "";
   library.forEach((book) => {
     const htmlBook = `
