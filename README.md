@@ -1,6 +1,8 @@
 # library-app
 
-A library app following I made as a project for The Odin
+A library app following I made as a project for [The Odin Project](https://www.theodinproject.com/).
+
+The clean and beautiful layout is thanks to [Skeleton](http://getskeleton.com/)
 
 ## Requirements
 
