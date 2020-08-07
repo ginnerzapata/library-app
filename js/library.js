@@ -1,4 +1,8 @@
-let library = [];
+let library = [
+  { name: "The Lord of the Rings", author: "Tolkien", status: "read" },
+  { name: "Alice in Wonderland", author: "Lewis Caroll", status: "not read" },
+  { name: "Naruro", author: "Masashi Kishimoto", status: "read" },
+];
 JSON.parse(localStorage.getItem("library"));
 const $name = document.querySelector("#name");
 const $author = document.querySelector("#author");
@@ -21,6 +25,7 @@ const $table = document
     }
     if (e.target.classList.contains("status-button")) {
       changeStatus(findBook(library, currentTarget.innerText));
+      updateLocalStorage();
     }
 
     render();
@@ -63,6 +68,7 @@ function clearForm() {
 
 function updateLocalStorage() {
   localStorage.setItem("library", JSON.stringify(library));
+  library = JSON.parse(localStorage.getItem("library"));
 }
 
 function render() {
