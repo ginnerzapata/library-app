@@ -1,4 +1,13 @@
 let library;
+const DEFAULT_DATA = [
+  { name: "The Lord of the Rings", author: "Tolkien", status: "read" },
+  {
+    name: "Alice in Wonderland",
+    author: "Lewis Caroll",
+    status: "not read",
+  },
+  { name: "Naruto", author: "Masashi Kishimoto", status: "read" },
+];
 const $name = document.querySelector("#name");
 const $author = document.querySelector("#author");
 const $status = document.querySelector("#status");
@@ -63,21 +72,13 @@ function clearForm() {
 }
 function updateLocalStorage() {
   localStorage.setItem("library", JSON.stringify(library));
-  library = JSON.parse(localStorage.getItem("library"));
+  //library = JSON.parse(localStorage.getItem("library"));
 }
 function checkLocalStorage() {
   if (localStorage.getItem("library")) {
     library = JSON.parse(localStorage.getItem("library"));
   } else {
-    library = [
-      { name: "The Lord of the Rings", author: "Tolkien", status: "read" },
-      {
-        name: "Alice in Wonderland",
-        author: "Lewis Caroll",
-        status: "not read",
-      },
-      { name: "Naruto", author: "Masashi Kishimoto", status: "read" },
-    ];
+    library = DEFAULT_DATA;
   }
 }
 
