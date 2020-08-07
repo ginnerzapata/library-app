@@ -1,9 +1,9 @@
 let library = [
   { name: "The Lord of the Rings", author: "Tolkien", status: "read" },
   { name: "Alice in Wonderland", author: "Lewis Caroll", status: "not read" },
-  { name: "Naruro", author: "Masashi Kishimoto", status: "read" },
+  { name: "Naruto", author: "Masashi Kishimoto", status: "read" },
 ];
-JSON.parse(localStorage.getItem("library"));
+
 const $name = document.querySelector("#name");
 const $author = document.querySelector("#author");
 const $status = document.querySelector("#status");
@@ -21,13 +21,11 @@ const $table = document
     if (e.target.innerHTML == "delete") {
       if (confirm(`are you sure you want to delete ${currentTarget.innerText}`))
         deleteBook(findBook(library, currentTarget.innerText));
-      updateLocalStorage();
     }
     if (e.target.classList.contains("status-button")) {
       changeStatus(findBook(library, currentTarget.innerText));
-      updateLocalStorage();
     }
-
+    updateLocalStorage();
     render();
   });
 
@@ -56,6 +54,9 @@ function deleteBook(currentBook) {
   library.splice(currentBook, currentBook + 1);
 }
 function findBook(libraryArray, name) {
+  if (libraryArray.length === 0 || libraryArray === null) {
+    return;
+  }
   for (book of libraryArray)
     if (book.name === name) {
       return libraryArray.indexOf(book);
@@ -65,13 +66,15 @@ function clearForm() {
   $name.value = "";
   $author.value = "";
 }
-
 function updateLocalStorage() {
   localStorage.setItem("library", JSON.stringify(library));
   library = JSON.parse(localStorage.getItem("library"));
 }
 
 function render() {
+  if (localStorage.getItem("library")) {
+    library = JSON.parse(localStorage.getItem("library"));
+  }
   $tableBody.innerHTML = "";
   library.forEach((book) => {
     const htmlBook = `
