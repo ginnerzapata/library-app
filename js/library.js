@@ -33,10 +33,12 @@ const $table = document
     render();
   });
 
-function Book(name, author, status) {
-  this.name = name;
-  this.author = author;
-  this.status = status;
+class Book {
+  constructor(name, author, status) {
+    this.name = name;
+    this.author = author;
+    this.status = status;
+  }
 }
 
 function addBookToLibrary() {
